@@ -1,0 +1,4 @@
+*
+!*.py
+!Dockerfile
+!requirements.txt

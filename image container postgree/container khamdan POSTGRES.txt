@@ -1,0 +1,5 @@
+container khamdan POSTGRES
+
+docker container create --name CONTAINER_KHAMDAN -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+
+docker volume create postgres_data

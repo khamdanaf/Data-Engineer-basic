@@ -1,0 +1,47 @@
+
+MEMBUAT CONTAINER POSTGRES
+
+docker container create --name CONTAINER_KHAMDAN -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+
+docker volume create postgres_data
+
+
+
+
+docker run --name example \
+-e POSTGRES_PASSWORD=secret \
+-p 5432:5432 \
+-d postgres
+
+
+
+
+
+docker run \
+   -p 9000:9000 \
+   -p 9001:9001 \
+   -v D:\minio\data:/data \
+   -e "MINIO_ROOT_USER=ROOTNAME" \
+   -e "MINIO_ROOT_PASSWORD=CHANGEME123" \
+   quay.io/minio/minio server /data --console-address ":9001"
+
+
+
+
+docker run \
+   -p 9000:9000 \
+   -p 9090:9090 \
+   --name minio1 \
+   --security-opt "credentialspec=file://path/to/file.json"
+   -e "MINIO_ROOT_USER=khamdanaf" \
+   -e "MINIO_ROOT_PASSWORD=UNISSula123" \
+   -v D:\data\engineer\belajar_airflow-master\belajar_airflow-master\data:/data \
+   quay.io/minio/minio server /data --console-address ":9090"
+
+
+docker run \
+   -p 9000:9000 \
+   -p 9090:9090 \
+   -e "MINIO_ROOT_USER=ROOTUSER" \
+   -e "MINIO_ROOT_PASSWORD=CHANGEME123" \
+   quay.io/minio/minio server /data --console-address ":9090"

@@ -1,0 +1,97 @@
+BASIC PANDAS
+
+import pandas as pd
+
+open head/tails //membuka file colums
+df.head(3) //artinya awal sampai urutan 3
+df.tail(2) // artinya urutan ke 2 dari terakir 
+df.describe()
+df.min()
+df.std()
+df.columns
+df[['Case','Sorties']]
+df.sorties
+df.iloc[3] //menampilkan 3 row
+df.iloc[3:29]  // menampilkan urutan 3 sampai 29 
+df.iloc[3:29, 3] //menampilkan 3 hasil sortir
+df.iloc[3:29 ,3:6] //menampilkan hasil sortir yang lebih banyak
+df.loc[datayang disitu:data yang disitu] //untuk mengkelompokkan data
+
+
+SELECTING DATA IN PANDAS
+mask = [False for _ in range(len)]
+mask[3:7] = [True]*4
+mask
+
+df[mask] //membuat menjadi daftar tabel
+df.loc[mask]
+
+mask=df.loc,'Lives lost after CG Notification'] < df.loc[:'lives Lost Before CG Notification']
+mask
+
+mask=df.loc,'Lives lost after CG Notification'] < 500
+df[mask]
+
+df.describe()
+
+mask =(df.loc[:,'Cases'] < 6000 & df.loc[:,'Sorties] > 4500)
+df[mask]
+
+df.loc[:,'Saved per sortie'] = df.loc[:,'Lives Saved']/df.loc[:,'Sorties']
+dc.columns
+
+import pandas as pd
+import numpy as np
+import random
+num_rows = 100
+colors = ['Red', 'Blue', 'Green']
+df = pd.DataFrame( {'color': [colors[random.randint(0,2)] for _ in range(num_rows)],
+                    'integers': [random.randint(0,15) for _ in range(num_rows)],
+                    'floats': [random.random() for _ in range(num_rows)]})
+df.head()
+
+
+MANIPULATING PANDAS DATA FRAME
+clients.rename(columns=('first':'First Name'))
+
+clients.rename(Index=(0:'a', 1:'b', 2:'c'),inplace=True)
+clients
+
+clients.reset_index(inplace=True)
+clients
+
+clients.drop(clumns='first')
+
+clients.drop(index=0)
+
+clients.age
+clients.age.astype(int)
+
+
+UPDATING PANDAS DATA FRAME DATA
+import pandas as pd
+clients =pd.DataFrame(data)
+clients
+
+new_client=pd.DataFrame.append(New_clients)
+new_clients
+
+clients.loc[1, 'first'] ='Frankie'
+clients
+
+clients.loc[1, 'CH_count'] = -1
+clients
+
+ clients.CH_count -= 3
+clients
+
+clients.replace(-4,0)
+
+
+APPLYING FUNGCTIONS IN A PANDAS DATAFRAME
+import pandas as pd
+data={'  ':range( , , ,),' ':range( , , ,)}
+df= pd.DataFrame(data)
+df
+
+sum(range(10))

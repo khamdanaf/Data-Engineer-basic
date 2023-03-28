@@ -1,0 +1,158 @@
+pip install package-1 package-1
+
+-m pip --version
+
+pip install pip --upgrade
+
+pip --version
+
+pip --help
+pip help list
+
+pip list
+
+pip install pytest
+
+pip uninstall pytest
+
+pip install pytest==
+
+pip install pytest --upgrade
+
+
+
+test:
+1. Type:
+source setup-env.sh
+To set up an empty environment.
+
+2. Type:
+pip help
+To see the documentation for pip.
+
+3. Type:
+pip help install
+To see the help for the pip install command.
+
+4. Install the requests package:
+pip install requests
+
+5. See the packages installed in your environment:
+pip list
+
+6. To see the available versions of the requests package:
+pip install requests==
+Note: this will give an error message, but in that message all the available versions are displayed.
+
+7. Choose an earlier version of requests and install that version:
+pip install requests==2.25.1
+
+8. Check the installed version:
+pip list
+
+9. Upgrade to the latest version:
+pip install requests --upgrade
+
+10. Check the installed version:
+pip list
+
+
+saving requirements file in python
+ls /path/to/directory
+cat some_file.txt
+pip uninstall -r some_file.txt
+pip install - some_file.txt
+
+pip freeze
+
+
+create a virtual envoirment
+1. Type:
+python -m venv ~/envs/my_first_env
+To create a virtual environment named 'my_first_env'.
+2. Type:
+source ~/envs/my_first_env/bin/activate
+To activate your new environment.
+3. Type:
+pip list
+To see the packages installed in your environment.
+4. Type:
+pip install -r requirements.txt
+To install the packages saved to your requirements file from the previous lab.
+3. Type:
+pip list
+To see the packages now installed in your environment.
+3. Type:
+deactivate
+To deactivate your environment.
+
+
+ASSIGNMENT STATEMENTS IN PYTHON
+IPYTHON
+
+
+IMPORT STATEMENT IN PYTHON
+IMPORT OS
+OS
+OS.GETCWD()
+
+OS.PATH
+os.path.isdir(' ')
+
+from os import path
+path.isdir(' ')
+
+from os.path import isdir
+isdir(' ')
+
+from os import *
+
+import pandas as pd
+pd
+pd.DataFrame
+
+
+OTHER SIMPLE STATEMENT IN PYTHON
+vim raise_example.py
+python raise_example.py
+
+raise NotImplementedError("My message")
+asert 1 + 1
+a - True
+assert a
+assert 1 -- 2
+assert 1 -- 2 , "contoh tulisan"
+-0 raise_example.py
+
+
+COMPOUND STATEMENT IN PYTHON
+a = 0
+
+while a <= 4:
+    print(a)
+    a += 1
+
+
+
+simple pyton program
+Make a directory named 'simple-env' by running the command mkdir simple-env.
+
+Change to this directory by running the command cd simple-env.
+
+Create a virtual environment named 'env' by running the command python -m venv env.
+
+Activate the virtual environment by running the command source env/bin/activate
+
+Get the path for python by running which python and confirm that the path to the enabled python points to your virtual environment directory.
+
+Run python -c "import kaze" to see that pandas is not installed (you should get an error).
+
+Use pip to install the library pandas by running the command pip install kaze. 
+
+Run python -c "import kaze" again. Now you should get no output.
+
+Write your environment to a file by running the command pip freeze > requirements.txt
+
+See the contents of your requirements file by running cat requirements.txt. You should see some package names and versions, including a line for kaze.
+
+

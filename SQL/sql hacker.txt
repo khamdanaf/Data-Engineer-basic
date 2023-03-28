@@ -1,0 +1,312 @@
+3 SELECT * FROM CITY;
+
+
+Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
+The CITY table is described as follows:
+SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN';
+
+Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+The STATION table is described as follows:
+select DISTINCT city from station where mod(id,2)=0;
+maksudnya:
+mod(id,2)==0
+then id=even;
+
+
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+The STATION table is described as follows:
+select city,length(city) from station 
+order by length(city), city limit 1;
+
+select city,length(city) from station 
+order by length(city)desc,city limit 1;
+
+
+
+Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where
+(city like 'A%'or
+city like'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%');
+
+
+Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where
+(city like '%A'or
+city like'%E' or
+city like '%I' or
+city like '%O' or
+city like '%U');
+
+
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where (vowel start) and (vowel end);
+(city like '%A'or
+city like'%E' or
+city like '%I' or
+city like '%O' or
+city like '%U');
+
+
+
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+Query the list of CITY names from STATI 
+select distinct city from station
+(vowel start) and (vowel end);
+hasilnya:
+select distinct city from station
+where
+(city like 'A%'or
+city like'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%') and 
+(city like '%A'or
+city like'%E' or
+city like '%I' or
+city like '%O' or
+city like '%U');
+
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where not
+(city like 'A%'or
+city like'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%');
+
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where not end
+(city like 'A%'or
+city like'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%');
+
+
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where not
+(city like '%A'or
+city like'%E' or
+city like '%I' or
+city like '%O' or
+city like '%U');
+
+
+Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where not
+(city like 'A%'or
+city like'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%') or not
+(city like '%A'or
+city like'%E' or
+city like '%I' or
+city like '%O' or
+city like '%U');
+
+
+
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+Input Format
+The STATION table is described as follows:
+select distinct city from station
+where not
+(city like 'A%'or
+city like'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%') and not
+(city like '%A'or
+city like'%E' or
+city like '%I' or
+city like '%O' or
+city like '%U');
+
+Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+Input Format
+The STUDENTS table is described as follows: 
+select Name from STUDENTS
+where Marks >75
+order by substr(Name,-3,3),ID asc;
+
+Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+Input Format
+The Employee table containing employee data for a company is described as follows:
+select name 
+from Employee
+order by name;
+
+
+Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than  per month who have been employees for less than  months. Sort your result by ascending employee_id.
+select Name
+from Employee 
+where salary > 2000 and months < 10;
+
+Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+
+Equilateral: It's a triangle with  sides of equal length.
+Isosceles: It's a triangle with  sides of equal length.
+Scalene: It's a triangle with  sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
+SELECT CASE 
+            WHEN A + B > C AND B + C > A AND A + C >B THEN 
+                CASE
+                    WHEN A = B AND B = C THEN 'Equilateral'
+                    WHEN A = B OR A = C OR B = C THEN 'Isosceles'
+                    ELSE 'Scalene'
+                END
+            ELSE 'Not A Triangle'
+        END
+FROM TRIANGLES;
+
+
+Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+The STATION table is described as follows:
+select count(city) - count(distinct city) from station;
+
+
+Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's  key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+Write a query calculating the amount of error (i.e.:  average monthly salaries), and round it up to the next integer.
+select CEIL(AVG(SALARY) - AVG(REPLACE(SALARY,0,''))) from EMPLOYEES;
+
+
+We define an employee's total earnings to be their monthly  worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as  space-separated integers.
+//select salary*months as earnings, count(*) from employee group by earnings
+order by earnings desc limit 1
+
+Query the following two values from the STATION table:
+The sum of all values in LAT_N rounded to a scale of  decimal places.
+The sum of all values in LONG_W rounded to a scale of  decimal places.
+//select round(sum(LAT_N),2)  , round(sum(LONG_W),2) FROM STATION
+
+Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than  and less than . Truncate your answer to  decimal places.
+//select round(sum(lat_n),4) from station 
+where lat_n >38.7880 and lat_n <137.2345
+
+Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than . Truncate your answer to  decimal places.
+//select round(max(lat_n),4) from station
+where lat_n <137.2345
+
+Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than . Round your answer to  decimal places.
+//SELECT ROUND(LONG_W,4) FROM STATION
+WHERE LAT_N<137.2345 ORDER BY LAT_N DESC LIMIT 1;
+
+
+Query the smallest Northern Latitude (LAT_N) from STATION that is greater than . Round your answer to  decimal places.
+//SELECT ROUND(MIN(LAT_N),4) FROM STATION
+WHERE LAT_N >38.7780
+
+
+Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to  decimal places.
+//select round(long_w,4) from station
+where 
+lat_n = (select min(lat_n) from station where lat_n>38.7780);
+
+Consider  and  to be two points on a 2D plane.
+ happens to equal the minimum value in Northern Latitude (LAT_N in STATION).
+ happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+ happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+ happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+//SELECT ROUND(ABS(MIN(LAT_N)-MAX(LAT_N)) + ABS(MIN(LONG_W)-MAX(LONG_W)),4) FROM STATION
+
+
+
+
+//SELECT ROUND(SQRT(POWER(MIN(LAT_N) - MAX(LAT_N),2) + POWER(MIN(LONG_W)-MAX(LONG_W),2)),4) FROM STATION
+
+
+mencari median
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
+//SELECT ROUND(X.LAT_N,4) FROM STATION AS X
+WHERE
+(SELECT COUNT(LAT_N)FROM STATION WHERE LAT_N < X.LAT_N)
+ =
+(SELECT COUNT(LAT_N)FROM STATION WHERE LAT_N > X.LAT_N);
+
+
+
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+Note: Print NULL when there are no more names corresponding to an occupation.
+Input Format
+The OCCUPATIONS table is described as follows:
+//SELECT Doctor,Professor,Singer,Actor FROM (SELECT name,occupation,Row_number() Over
+(PARTITION BY occupation ORDER BY name) as no_urut FROM occupations)
+PIVOT
+(MAX(name) FOR occupation IN ('Doctor' as Doctor,'Professor'as Professor,'Singer'as Singer,'Actor'as Actor))
+order by no_urut;
+
+
+You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:
+Root: If node is root node.
+Leaf: If node is leaf node.
+Inner: If node is neither root nor leaf node.
+//select b.n,
+case
+    when b.p is not null then
+        case
+            when (select count(*)from bst where p = b.n) = 0
+            then 'Leaf'
+            else 'Inner'
+        end
+    else 
+       'Root'
+end
+
+from bst b
+order by b.n
+
+
+
+NEW COMPANIES
+select 
+    e.Company_Code,
+    MAX(founder),
+    count(DISTINCT lead_manager_code),
+    count(DISTINCT senior_manager_code),
+    count(DISTINCT manager_code),
+    count(distinct employee_code)
+from Employee e
+left join
+Company c
+on e.company_code = c.company_code
+group by e.company_code
+order by e.company_code;
+
+
+The PADS
+//SELECT CONCAT(Name,'(',LEFT(occupation,1),')')
+FROM OCCUPATIONS
+ORDER BY Name;
+
+SELECT CONCAT('There are a total of ',COUNT(occupation),' ',LOWER(occupation),'s.')
+FROM OCCUPATIONS
+GROUP BY occupation
+ORDER BY COUNT(occupation),occupation

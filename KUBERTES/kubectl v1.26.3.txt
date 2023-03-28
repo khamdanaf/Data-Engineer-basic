@@ -1,0 +1,24 @@
+kubectl v1.26.3
+
+mengetahui versi
+kubectl version
+
+mengetahui node pada kubectl
+kubectl get node
+
+mengetahui jumlah node yang ada
+kubectl describe node docker-desktop
+
+mengetahui pod yang ada
+kubectl get pod 
+kubectl get pod -o wide
+
+mengetahui jumlah pod yang ada
+kubectl describe pod
+
+(MEMBUAT POD)mensubmit data kubectl dari file yml
+kubectl create -f filepod.yaml
+
+mengakses pod
+kubectl port-forward namapod portakses:portpod 
+kubectl port-forward nginx 8888:80

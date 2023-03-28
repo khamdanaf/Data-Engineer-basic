@@ -1,0 +1,43 @@
+docker info
+mengaetahui informasi aplikasi docker
+
+docker version
+mengetahi versi docker
+
+docker run ....
+meng install images tergantung mereknya apa
+
+docker images create
+membuat image
+
+docker container ls                                
+melihat list yang aktif container
+
+docker container ls --all                         
+melihat semua list termasuk aktif dan tidak
+
+docker container create mongo                     
+membuat container dari aplikasi "mongo" nama container random
+
+docker container create --name mongoserver1 mongo  
+membuat nama container dengan nama "mongoserver1"
+
+docker container rm mongoserver1                   
+menghapus container dengan nama container "mongoserver1"
+
+docker container stop mongoserver1                 
+menghentikan aktifitas container "mongoserver1"
+
+docker container --name Mongo_Server1 -p 8080:27017 mongo
+membuat container dan mengaktifkan port container yang aslinya 27017 ke port 8080 yang aktif
+
+docker image rm mongo
+menghapus image
+
+docker tag local-image:khamdanaf/app-golang push reponame:khamdanaf/app-golang
+
+docker push khamdanaf/app-golang:tagname
+upload image baru
+
+docker pull khamdanaf/app-golang:tagname
+upload image yang sudah ada

@@ -1,0 +1,26 @@
+python bab2
+
+def return_num():
+	for x in range(5):
+           yield x
+gen_num = return_num() next(gen_num)
+hasil =2
+
+
+def counter(x)
+     while true:
+      yield x
+       x += 1
+count = counter(12) next(count) 
+hasil = 13
+
+
+def fib():
+    for cur in (0,1):
+     last = cur
+      yield cur
+   while true:
+       yield cur
+       last,cur = cur , last + cur
+f=fib()  next(f)
+hasil 3

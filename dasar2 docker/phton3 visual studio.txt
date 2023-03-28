@@ -1,0 +1,11 @@
+pwd
+memanggil awalan di airflow
+
+python3 --version
+mengetahui versi python3
+
+python3 -m venv py_env
+membuat file py_env
+
+source py-env/bin/activate
+mengaktifkan pyton environment dengan command
